@@ -1,0 +1,22 @@
+class Solution:
+    # Function to find the majority elements in the array
+    def findMajority(self, arr):
+        #Your Code goes here.
+        arr.sort()
+        
+        result = []
+        n = len(arr)
+        temp = n // 3
+        
+        i = 0
+        while i < n:
+            num = arr[i]
+            count = 1
+            while i + 1 < n and arr[i + 1] == num:
+                i += 1
+                count += 1
+            if count > temp:
+                result.append(num)
+            i += 1
+        
+        return result
