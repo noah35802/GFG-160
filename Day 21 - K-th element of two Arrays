@@ -1,0 +1,9 @@
+class Solution:
+
+    def kthElement(self, a, b, k):
+        pass
+        merged_array = a + b
+        
+        merged_array.sort()
+        
+        return merged_array[k-1]
