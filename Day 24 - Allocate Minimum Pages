@@ -1,0 +1,29 @@
+class Solution:
+    
+    #Function to find minimum number of pages.
+    def findPages(self, arr, k):
+        #code here
+        
+        if len(arr) < k:
+            return -1
+        
+        start, end = max(arr), sum(arr)
+        
+        while start <= end:
+            mid = (start + end) // 2
+            total, students = 0, 1
+            
+            for pages in arr:
+                total += pages
+                if total > mid:
+                    students += 1
+                    total = pages
+                    if students > k:
+                        break
+            
+            if students <= k:
+                end = mid - 1
+            else:
+                start = mid + 1
+        
+        return start
