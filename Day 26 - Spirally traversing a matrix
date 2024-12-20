@@ -1,0 +1,17 @@
+class Solution:
+    # Function to return a list of integers denoting spiral traversal of matrix.
+    def spirallyTraverse(self, mat):
+        # code here
+        
+        res = []
+        while mat:
+            res += mat.pop(0)
+            if mat and mat[0]:
+                for line in mat:
+                    res.append(line.pop())
+            if mat:
+                res += mat.pop()[::-1]
+            if mat and mat[0]:
+                for line in mat[::-1]:
+                    res.append(line.pop(0))
+        return res
