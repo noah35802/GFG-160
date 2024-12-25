@@ -1,0 +1,15 @@
+class Solution:
+    def setMatrixZeroes(self, mat):
+        row = len(mat)
+        col = len(mat[0])
+        Row = [-1] * row
+        Col = [-1] * col
+        for i in range(row):
+            for j in range(col):
+                if mat[i][j] == 0:
+                    Row[i] = 0
+                    Col[j] = 0
+        for i in range(row):
+            for j in range(col):
+                if Row[i] == 0 or Col[j] == 0:
+                    mat[i][j] = 0
