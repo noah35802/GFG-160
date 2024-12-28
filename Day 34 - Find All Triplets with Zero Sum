@@ -1,0 +1,20 @@
+class Solution:
+    def findTriplets(self, arr):
+        # Your code here
+        ans = []
+        n = len(arr)
+        for i in range(n):
+            mp = {}
+
+            for k in range(i + 1, n):
+                target = -(arr[i] + arr[k])
+
+                if target in mp:
+                    for j in mp[target]:
+                        ans.append([i, j, k])
+
+                if arr[k] not in mp:
+                    mp[arr[k]] = []
+                mp[arr[k]].append(k)
+
+        return ans
