@@ -1,0 +1,10 @@
+class Solution:
+    def intersectionWithDuplicates(self, a, b):
+        # code here
+        seta = set(a)
+        setb = set(b)
+
+        result = list(seta.intersection(setb))
+
+        return result
+
