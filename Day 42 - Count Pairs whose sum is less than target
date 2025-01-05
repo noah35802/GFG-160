@@ -1,0 +1,14 @@
+class Solution:
+    #Complete the below function
+    def countPairs(self, arr, target):
+        #Your code here
+        arr.sort()
+        l,h,ans=0,len(arr)-1,0
+        while l<h:
+            val=arr[l]+arr[h]
+            if val<target:
+                ans+=(h-l)
+                l+=1
+            else:
+                h-=1
+        return ans
