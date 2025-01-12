@@ -1,0 +1,30 @@
+class Solution:
+    def maxWater(self, arr):
+        # code here
+        n = len(arr)
+        if n == 0:
+            return 0
+        
+        trapped = 0
+        
+        i, j = 0, n - 1 # left and right
+
+        left_max = arr[i] #left to right pointer
+        right_max = arr[j] #right to left pointer
+        trapped = 0
+
+    
+
+        while i < j:
+            if left_max < right_max: #moving right
+                i += 1 #important part
+                left_max = max(left_max, arr[i])
+                trapped += left_max - arr[i]
+
+            else: #moving left
+                right_max = max(right_max, arr[j])
+                trapped += right_max - arr[j]
+                j -= 1 #important part
+
+
+        return trapped
