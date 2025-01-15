@@ -1,0 +1,10 @@
+class Solution:
+	def sentencePalindrome(self, s):
+		# your code here
+        res = []
+        for ch in s:
+            if ch.isalnum():
+                res.append(ch.lower())
+        res = ''.join(res)
+        reverse = res[::-1]
+        return res == reverse
