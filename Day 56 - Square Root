@@ -1,0 +1,7 @@
+class Solution:
+    def floorSqrt(self, n): 
+    #Your code here
+        res = 1
+        while res * res <=  n:
+            res += 1
+        return res - 1
