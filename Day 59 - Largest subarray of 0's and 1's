@@ -1,0 +1,18 @@
+class Solution:
+    def maxLen(self, arr):
+        # code here
+        sum_map = {}
+        res = 0
+        presum= 0
+        
+        for i in range(len(arr)):
+            presum += -1 if arr[i] == 0 else 1
+            
+            if presum == 0:
+                res = i + 1
+            elif presum in sum_map:
+                res = max(res, i - sum_map[presum])
+            else:
+                sum_map[presum] = i
+                    
+        return res
