@@ -1,0 +1,13 @@
+class Solution:
+    # Your task is to Complete this function
+    # functtion should return an integer
+    def maxDistance(self, arr):
+        # Code here
+        index = {}
+        max_d = 0
+        for i, num in enumerate(arr):
+            if num in index:
+                max_d = max(max_d, i - index[num])
+            else:
+                index[num] = i
+        return max_d
