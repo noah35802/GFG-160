@@ -1,0 +1,6 @@
+class Solution:
+	def rotateMatrix(self, mat):
+		# Code here
+		mat.reverse()
+		for row in mat:
+		    row.reverse()
