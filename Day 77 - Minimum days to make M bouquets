@@ -1,0 +1,22 @@
+class Solution:
+    def minDaysBloom(self, m, k, arr):
+        # Code here
+        def can(day):
+            count, bouquet = 0, 0
+            for i in range(len(arr)):
+                if arr[i] <= day:
+                    count += 1
+                    if count == k:
+                        bouquet += 1
+                        count = 0
+            return bouquet >= m
+            
+        left, right = min(arr), max(arr)
+        while left < right:
+            mid = (left + right) // 2
+            if can(mid):
+                right = mid
+            else:
+                left = mid + 1
+        
+        return left if can(left) else -1
